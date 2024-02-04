@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #define N 5
 #define M 5
 
@@ -24,4 +25,21 @@ int find_group_with_highest_mark(int matrix[N][M], int mark) {
 	}
 
 	return group_index;
+}
+
+string find_group_with_lowest_marks(int matrix[N][M]) {
+	string msg = "";
+	
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			if (matrix[i][j] >= 0 && matrix[i][j] <= 3) {
+				msg += "Group " + to_string(i + 1) + "\n";
+				break;
+			}
+		}
+	}
+
+	return msg;
 }
