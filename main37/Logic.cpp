@@ -57,3 +57,27 @@ double find_avg_progress(int matrix[N][M]) {
 	
 	return avg / (N * M);
 }
+
+double find_avg_progress_group(int matrix[N][M], int row_index) {
+	double avg = 0;
+
+	for (int i = 0; i < M; i++)
+	{
+		avg += matrix[row_index][i];
+	}
+	
+	return avg / M;
+}
+
+void increase_mark_above_avg(int matrix[N][M], double avg) {
+	
+	for (int i = 0; i < N; i++)
+	{
+		double group_avg = find_avg_progress_group(matrix, i);
+		
+		for (int j = 0; j < M && group_avg > avg; j++)
+		{
+			matrix[i][j]++;
+		}
+	}
+}
