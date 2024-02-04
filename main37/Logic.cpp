@@ -43,3 +43,17 @@ string find_group_with_lowest_marks(int matrix[N][M]) {
 
 	return msg;
 }
+
+double find_avg_progress(int matrix[N][M]) {
+	double avg = 0;
+
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			avg += matrix[i][j];
+		}
+	}
+	
+	return avg / (N * M);
+}

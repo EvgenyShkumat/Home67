@@ -15,6 +15,7 @@ string convert_matrix_to_string(int matrix[N][M]);
 
 int find_group_with_highest_mark(int matrix[N][M], int mark);
 string find_group_with_lowest_marks(int matrix[N][M]);
+int find_avg_progress(int matrix[N][M]);
 
 int main() {
 	int matrix[N][M];
