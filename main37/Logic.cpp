@@ -82,26 +82,27 @@ void increase_mark_above_avg(int matrix[N][M], double avg) {
 	}
 }
 
-void sort_desc_progress(int matrix[N][M]) {
-	double vector[N];
+void find_avg_progress_each_group(int matrix[N][M], double* vector) {
 	for (int i = 0; i < N; i++)
 	{
 		vector[i] = find_avg_progress_group(matrix, i);
 		cout << vector[i] << endl;
 	}
+}
 
+void sort_desc_progress(int matrix[N][M], double* vector) {
 	for (int i = 0; i < N - 1; i++)
 	{
 		int current_min_index = i + 1;
 
 		for (int j = i + 2; j < N; j++)
 		{
-			if (vector[current_min_index] > vector[j]) {
+			if (vector[current_min_index] < vector[j]) {
 				current_min_index = j;
 			}
 		}
 
-		if (vector[i] > vector[current_min_index]) {
+		if (vector[i] < vector[current_min_index]) {
 			swap(vector[current_min_index], vector[i]);
 			swap(matrix[current_min_index], matrix[i]);
 		}
